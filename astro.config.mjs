@@ -14,7 +14,7 @@ const repo = process.env.GITHUB_REPOSITORY?.split('/')[1];
 const base = repo ? `/${repo}/` : '/';
 
 export default defineConfig({
-  site: 'https://YOUR_USERNAME.github.io',
+  site: 'https://y5jttt.github.io',
   base,
   integrations: [sitemap()],
   // GitHub Pages 静态托管:关闭 trailingSlash 更稳妥
