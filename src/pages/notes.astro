@@ -1,0 +1,34 @@
+---
+// 测绘记 / Field Notes — 最新 3 篇 + 更多按钮 → 归档(全部文章)
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const all = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const latest3 = all.slice(0, 3);
+const total = all.length;
+---
+
+<BaseLayout title="测绘记 · 云脉 Field Notes"
+  description="云脉测绘记：以实测记录国内各大云厂商的 IP 分配、路由接驳与跨网互联。最新三篇，以及更多。" >
+
+  <section class="chapter" id="notes">
+    <span class="ch-bg" aria-hidden="true">∞</span>
+    <p class="kicker reveal">Field Notes · 测绘记</p>
+    <h2 class="ch-title reveal" style="--d:.1s">测绘记<span>What the traces taught me.</span></h2>
+
+    <div class="ch-body">
+      <div class="cards reveal" style="--d:.15s">
+        {latest3.map((post, i) => <PostCard post={post} index={i} />)}
+      </div>
+
+      {total > 3 && (
+        <div class="more-wrap reveal" style="--d:.3s">
+          <a class="more-btn" href="/archive/">更多文章 · 共 {total} 篇 &nbsp;→</a>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

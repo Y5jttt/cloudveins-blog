@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="CloudVeins marble motif">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#1c1a17"/>
+      <stop offset="100%" stop-color="#0d0c0b"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4d58a"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#a8801f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="400" cy="225" r="120" fill="none" stroke="url(#gold)" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="400" cy="225" r="92" fill="#14110d" stroke="rgba(212,175,55,.35)" stroke-width="1"/>
+  <path d="M400 133 L400 317 M308 225 L492 225" stroke="rgba(212,175,55,.45)" stroke-width="1"/>
+  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="20" letter-spacing="6" fill="#d4af37">E TERNUM</text>
+</svg>

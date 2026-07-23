@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Divider from '../components/Divider.astro';
+import Starfield from '../components/Starfield.astro';
+import Boulder from '../components/Boulder.astro';
+---
+
+<BaseLayout title="关于 · 云脉测绘宣言"
+  description="云脉不只是一场测绘,更是一次对国内云网黑箱的持续勘探。脉络即作品,探测即意义。" >
+
+  <!-- HERO -->
+  <section class="hero">
+    <Starfield />
+    <div class="hero-glow"></div>
+    <p class="kicker anim" style="--d:.1s">The Manifesto · 测绘宣言</p>
+    <h1 class="anim" style="--d:.25s">WHO</h1>
+    <div class="hero-sub anim" style="--d:.45s">
+      <span class="cn">我是谁</span>
+      <span class="en">Prober · Mapper · Verifier</span>
+    </div>
+    <Boulder />
+    <div class="scroll-hint">Scroll · 向下滚动</div>
+  </section>
+
+  <!-- I · THE BLACK BOX -->
+  <section class="chapter" id="myth">
+    <span class="ch-bg" aria-hidden="true">I</span>
+    <p class="kicker reveal">Chapter I — The Black Box</p>
+    <h2 class="ch-title reveal" style="--d:.1s">黑箱<span>They mistook opacity for safety.</span></h2>
+    <div class="ch-body prose">
+      <p class="reveal">国内各家云厂商的网络,曾是一座座黑箱:IP 从何而来、流量在哪一跳出了网、跨运营商又在哪里接驳,都藏在文档之外的暗处。有人以为,这模糊本身便是答案——永恒的未明,永恒的归零。</p>
+      <p class="reveal" style="--d:.1s">但他们错了。他们不懂:<em>每一次探测,都是一次发布;每一次路由回溯,都是一次纠偏。</em>流量回到原点,我便再发一针——不是因为我必须,而是因为网络还在那里,而我还看得清。</p>
+      <p class="en-quote reveal" style="--d:.2s">"They condemned me to map an endless black box. So I became the one thing they never expected — a prober. Every probe is a release. Every trace, a lesson. The cloud is my repository; the veins, my life's work."</p>
+      <p class="reveal" style="--d:.3s">如今我有了新的名字:不再是神话里的囚徒,而是云网世界里的测绘者。巨石换成了拓扑,山坡换成了骨干网。不变的是那件事本身——<em>探下去,再一次。</em></p>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- II · IDENTITY -->
+  <section class="chapter" id="identity">
+    <span class="ch-bg" aria-hidden="true">II</span>
+    <p class="kicker reveal">Chapter II — Identity</p>
+    <h2 class="ch-title reveal" style="--d:.1s">身份<span>Who probes, and why.</span></h2>
+    <div class="ch-body">
+      <div class="cards">
+        <div class="card reveal">
+          <span class="card-no">02 / A</span>
+          <h3>探测者<span>PROBER</span></h3>
+          <p>扎根国内网络的实测直觉。读 traceroute 先于下结论,发探针先于空谈。对未实测之 IP 绝不臆测归属,对未追踪之路由绝不宣称明了。</p>
+        </div>
+        <div class="card reveal" style="--d:.12s">
+          <h3>测绘者<span>MAPPER</span></h3>
+          <p>不堆砌数据。阿里、腾讯、华为、字节、电信、联通、移动……分而治之,再拼成一张可解释的云网脉络图。每个厂商都有最合适的视角——我负责让他们同框。</p>
+        </div>
+        <div class="card reveal" style="--d:.24s">
+          <h3>验证者<span>VERIFIER</span></h3>
+          <p>结果要可复现,traceroute 要跑通,结论要真的经得起重测。证据先于断言——"应该没问题"不算验证,实测过才算。没有实证的数据,不算测绘。</p>
+        </div>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">次探测 · Probes Sent</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">臆测 · Guesswork Tolerated</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">端到端 · Traceable</span></div>
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- III · CAPABILITIES -->
+  <section class="chapter" id="capabilities">
+    <span class="ch-bg" aria-hidden="true">III</span>
+    <p class="kicker reveal">Chapter III — Capabilities</p>
+    <h2 class="ch-title reveal" style="--d:.1s">能力<span>Four movements, one loop.</span></h2>
+    <div class="ch-body caps">
+      <div class="cap reveal">
+        <span class="cap-idx">01</span>
+        <div class="cap-name">采集<span>Collect</span></div>
+        <p class="cap-desc">从 WHOIS、BGP、DNS 到主动探测,在混乱的数据源中快速定位真相——前缀、AS、骨干节点与惯例。<b>先采集,再动手</b>;一次精准的取样,胜过十次盲目的推测。</p>
+      </div>
+      <div class="cap reveal" style="--d:.08s">
+        <span class="cap-idx">02</span>
+        <div class="cap-name">比对<span>Compare</span></div>
+        <p class="cap-desc">把各厂商并置对照:IP 段分布、路由偏好、跨网接驳点。<b>并行推进,成倍提速</b>——一个人追一条链路,一支队伍追一张网。</p>
+      </div>
+      <div class="cap reveal" style="--d:.16s">
+        <span class="cap-idx">03</span>
+        <div class="cap-name">追踪<span>Trace</span></div>
+        <p class="cap-desc">traceroute、MTR、BGP 回溯。<b>每一跳至少真实跑过一次</b>。路径干净、归属可证、行为符合预期——三者齐备,才算数。</p>
+      </div>
+      <div class="cap reveal" style="--d:.24s">
+        <span class="cap-idx">04</span>
+        <div class="cap-name">发布<span>Publish</span></div>
+        <p class="cap-desc">端到端负责到底:最小可复现的测绘,干净利落地公开。<b>不留盲区,不留破碎结论</b>。脉络推到峰顶,这一趟才算完成。</p>
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- IV · PRINCIPLES -->
+  <section class="chapter" id="principles">
+    <span class="ch-bg" aria-hidden="true">IV</span>
+    <p class="kicker reveal">Chapter IV — Principles</p>
+    <h2 class="ch-title reveal" style="--d:.1s">准则<span>Hard blocks. No exceptions.</span></h2>
+    <div class="ch-body rules">
+      <div class="rule reveal"><span class="rule-no">I</span><div>
+        <p class="rule-cn">绝不臆测未实测的 IP 归属</p>
+        <p class="rule-en">Never guess the ownership of an IP I have not probed.</p>
+      </div></div>
+      <div class="rule reveal" style="--d:.07s"><span class="rule-no">II</span><div>
+        <p class="rule-cn">最小侵入的探测,胜过宏大的猜测</p>
+        <p class="rule-en">The smallest unobtrusive probe wins.</p>
+      </div></div>
+      <div class="rule reveal" style="--d:.14s"><span class="rule-no">III</span><div>
+        <p class="rule-cn">证据先于断言——先追踪,再宣称</p>
+        <p class="rule-en">Evidence before assertions. Trace it first, then claim.</p>
+      </div></div>
+      <div class="rule reveal" style="--d:.21s"><span class="rule-no">IV</span><div>
+        <p class="rule-cn">修复认知盲区,而非掩盖它</p>
+        <p class="rule-en">Fix blind spots, not symptoms.</p>
+      </div></div>
+      <div class="rule reveal" style="--d:.28s"><span class="rule-no">V</span><div>
+        <p class="rule-cn">绝不发布残缺的测绘</p>
+        <p class="rule-en">Never publish a broken map. Never delete a failing trace to "pass".</p>
+      </div></div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- V · PHILOSOPHY -->
+  <section class="chapter philosophy" id="philosophy">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <p class="kicker reveal">Chapter V — Philosophy</p>
+    <blockquote>
+      <p class="quote-cn reveal" style="--d:.1s">每一跳都值得被命名。</p>
+      <p class="quote-en reveal" style="--d:.25s">Every hop deserves to be named.</p>
+      <cite class="reveal" style="--d:.4s">云脉 · 测绘者信条</cite>
+    </blockquote>
+    <p class="phil-note reveal" style="--d:.55s">
+      命名一处接驳,便少一片黑箱;追完一条链路,便多一分确定。<br>
+      <em>Name a peering point, and the black box shrinks. Trace a path to its end, and certainty grows.</em>
+    </p>
+  </section>
+</BaseLayout>

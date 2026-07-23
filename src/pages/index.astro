@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Starfield from '../components/Starfield.astro';
+import Boulder from '../components/Boulder.astro';
+import Divider from '../components/Divider.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="云脉 · CloudVeins — 国内云厂商 IP 与路由测绘"
+  description="云脉：以实测测绘国内各大云厂商的 IP 分配、路由接驳与跨网互联情况。探针不止于推测，每一跳都该解释得清。">
+
+  <!-- ═════════ HERO ════════ -->
+  <section class="hero">
+    <Starfield />
+    <div class="hero-glow"></div>
+
+    <p class="kicker anim" style="--d:.1s">China Cloud Atlas&nbsp;&nbsp;·&nbsp;&nbsp;国内云网测绘</p>
+    <h1 class="anim" style="--d:.25s">CLOUDVEINS</h1>
+    <div class="hero-sub anim" style="--d:.45s">
+      <span class="cn">云脉</span>
+      <span class="en">China Cloud IP &amp; Routing Atlas&nbsp;·&nbsp;国内云厂商 IP 与路由接驳</span>
+    </div>
+    <div class="hero-creed anim" style="--d:.65s">
+      <span>Probe</span><i></i><span>Map</span><i></i><span>Verify</span><i></i><span>Publish</span>
+      <span class="cn">探测 · 测绘 · 验证 · 发布</span>
+    </div>
+
+    <span class="side-note">Est. 2026 — Mapping the unseen fabric of China's clouds&nbsp;·&nbsp;测绘云网之未知脉络</span>
+    <Boulder />
+    <div class="scroll-hint">Scroll · 向下滚动</div>
+  </section>
+
+  <!-- ═════════ MARQUEE ════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-inner" id="marquee">
+      <span><b>实测优先</b>&nbsp;&nbsp;Evidence Before Assertions</span><i>◆</i>
+      <span><b>拒绝臆测 IP 归属</b>&nbsp;&nbsp;No Guesswork on IP Ownership</span><i>◆</i>
+      <span><b>路由追踪到最后一跳</b>&nbsp;&nbsp;Trace to the Last Hop</span><i>◆</i>
+      <span><b>每一跳都解释得清</b>&nbsp;&nbsp;Every Hop Accounted For</span><i>◆</i>
+      <span><b>我们测绘,不盲信</b>&nbsp;&nbsp;We Map, Not Believe</span><i>◆</i>
+      <span><b>云网脉络,永不停歇</b>&nbsp;&nbsp;The Veins Never Rest</span><i>◆</i>
+    </div>
+  </div>
+
+  <!-- ═════════ LATEST POSTS ════════ -->
+  <section class="chapter" id="journal">
+    <span class="ch-bg" aria-hidden="true">∞</span>
+    <p class="kicker reveal">Chapter ∞ — Field Notes</p>
+    <h2 class="ch-title reveal" style="--d:.1s">测绘记<span>What the traces taught me.</span></h2>
+    <div class="ch-body">
+      <div class="cards reveal" style="--d:.15s">
+        {posts.map((post, i) => <PostCard post={post} index={i} />)}
+      </div>
+      <div class="more-wrap reveal" style="--d:.3s">
+        <a class="more-btn" href="/notes/">进入测绘记 · 全部观测 →</a>
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- ═════════ PHILOSOPHY CLOSING ════════ -->
+  <section class="chapter philosophy" id="philosophy">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <p class="kicker reveal">Chapter V — Philosophy</p>
+    <blockquote>
+      <p class="quote-cn reveal" style="--d:.1s">每一跳都值得被命名。</p>
+      <p class="quote-en reveal" style="--d:.25s">Every hop deserves to be named.</p>
+      <cite class="reveal" style="--d:.4s">云脉 · 测绘者信条</cite>
+    </blockquote>
+    <p class="phil-note reveal" style="--d:.55s">
+      命名一处接驳,便少一片黑箱;追完一条链路,便多一分确定。<br>
+      <em>Name a peering point, and the black box shrinks. Trace a path to its end, and certainty grows.</em>
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+// 文章卡片 (复用模板 .card 视觉)
+import type { CollectionEntry } from 'astro:content';
+interface Props { post: CollectionEntry<'posts'>; index?: number; }
+const { post, index } = Astro.props;
+const { title, subtitle, date, tags, excerpt } = post.data;
+const url = `/posts/${post.slug}/`;
+const no = (index !== undefined)
+  ? String(index + 1).padStart(2, '0') + ' / ' + (tags[0] ?? 'POST').toUpperCase()
+  : new Date(date).toISOString().slice(0, 10);
+const dateLabel = new Date(date).toLocaleDateString('zh-CN', { year:'numeric', month:'long', day:'numeric' });
+---
+
+<article class="card reveal">
+  <a href={url} style="text-decoration:none;color:inherit;display:block;">
+    <span class="card-no">{no}</span>
+    <h3>{title}<span>{subtitle ?? 'Untitled'}</span></h3>
+    <p>{excerpt ?? ''}</p>
+    <div class="post-meta">{dateLabel}</div>
+    {tags.length > 0 && (
+      <div class="tags">
+        {tags.map((t) => <a class="tag" href={`/tags/${t}/`}>{t}</a>)}
+      </div>
+    )}
+  </a>
+</article>

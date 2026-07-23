@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import Divider from '../components/Divider.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const byYear = new Map<number, typeof posts>();
+for (const p of posts) {
+  const y = p.data.date.getFullYear();
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(p);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+---
+
+<BaseLayout title="归档 · 云脉测绘记"
+  description="所有测绘记,按年份归档。" >
+
+  <section class="chapter" id="archive">
+    <span class="ch-bg" aria-hidden="true">⌗</span>
+    <p class="kicker reveal">Archive · 归档</p>
+    <h2 class="ch-title reveal" style="--d:.1s">测绘记<span>Every trace, every climb.</span></h2>
+
+    <div class="ch-body">
+      {years.map((y, yi) => (
+        <div>
+          {yi > 0 && <Divider />}
+          <p class="reveal" style={`--d:${yi * 0.05}s;font-family:var(--display);font-size:clamp(2rem,5vw,3rem);color:var(--gold);margin:${yi > 0 ? '4rem' : '0'} 0 2.4rem;letter-spacing:.1em;`}>{y}</p>
+          <div class="cards reveal" style={`--d:${yi * 0.05 + 0.08}s`}>
+            {byYear.get(y)!.map((post, i) => <PostCard post={post} index={i} />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
