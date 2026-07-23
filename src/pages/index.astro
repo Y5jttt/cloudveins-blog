@@ -57,7 +57,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
         {posts.map((post, i) => <PostCard post={post} index={i} />)}
       </div>
       <div class="more-wrap reveal" style="--d:.3s">
-        <a class="more-btn" href="/notes/">进入测绘记 · 全部观测 →</a>
+        <a class="more-btn" href={`${import.meta.env.BASE_URL}notes/`}>进入测绘记 · 全部观测 →</a>
       </div>
     </div>
   </section>

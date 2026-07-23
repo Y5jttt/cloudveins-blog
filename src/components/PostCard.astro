@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 interface Props { post: CollectionEntry<'posts'>; index?: number; }
 const { post, index } = Astro.props;
 const { title, subtitle, date, tags, excerpt } = post.data;
-const url = `/posts/${post.slug}/`;
+const url = `${import.meta.env.BASE_URL}posts/${post.slug}/`;
 const no = (index !== undefined)
   ? String(index + 1).padStart(2, '0') + ' / ' + (tags[0] ?? 'POST').toUpperCase()
   : new Date(date).toISOString().slice(0, 10);
@@ -19,7 +19,7 @@ const dateLabel = new Date(date).toLocaleDateString('zh-CN', { year:'numeric', m
     <div class="post-meta">{dateLabel}</div>
     {tags.length > 0 && (
       <div class="tags">
-        {tags.map((t) => <a class="tag" href={`/tags/${t}/`}>{t}</a>)}
+        {tags.map((t) => <a class="tag" href={`${import.meta.env.BASE_URL}tags/${t}/`}>{t}</a>)}
       </div>
     )}
   </a>

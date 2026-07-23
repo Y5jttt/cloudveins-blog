@@ -12,7 +12,7 @@ const dateLabel = new Date(date).toLocaleDateString('zh-CN', {
 ---
 
 <article class="chapter" style="max-width:780px;">
-  <a class="post-back" href="/" onclick="if(history.length>1){history.back();return false;}">← 返回</a>
+  <a class="post-back" href={import.meta.env.BASE_URL} onclick="if(history.length>1){history.back();return false;}">← 返回</a>
   <p class="kicker reveal">Journal · 测绘记</p>
   <h2 class="ch-title reveal" style="--d:.1s">{title}<span>{subtitle ?? ''}</span></h2>
   <div class="post-meta reveal" style="--d:.15s;margin-top:1.4rem;">
